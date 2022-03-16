@@ -4,7 +4,7 @@ Repository for the QA DevOps Core Practical Project.
 ## Table of Contents
 * [Project Brief](#Project-Brief)
 * [Project Planning](#Project-Planning)
-	*[Risk Assessment](#Risk-Assessment)
+ *[Risk Assessment](#Risk-Assessment)
 
 ## Project Brief
 To produce an application, consisting of four microservices, all interacting with one another to generate objects using a defined logic. 
