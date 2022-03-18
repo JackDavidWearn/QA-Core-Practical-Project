@@ -27,10 +27,12 @@ The application was to be produced and maintained using a fully automated CI/CD 
 Prior to the commencement of the project, a Risk Assessment Table was produced. This outlines any risks that have been considered prior to the commencement of working on the actual project. This table will be updated throughout the project to accommodate any new risks that may have arisen or need to be considered. Any updates will be made to the table and reassesed throughout the span of the entire project. They will also be evaluated after the project to ensure that no errors/risks will occur to the live application. The risk assessment table from prior to the commencement of the project can be seen below, with the key for this table below that. 
 ![Risk Assessment Table](/Readme-Images/Risk-Assessment.png)
 ![Risk Assessment Table Key](/Readme-Images/Risk-Assessment-Key.png)
+
 Users will not be submitting any information (personal information) into the application, and so the main focus of the risk assessment and risk assessment table was the operational risks. Operational risks are the risks which are associated solely on the building/creating of the application and deployment of the application. As seen from the table above, each of the different risks was assigned a Probablity and Impact score both before and after the control variable that will be used. This is done to quantify the risk and act as a guide throughout the development of the application. 
 
 ### Entity Diagram
 For this project, a database will be used to save and persist data. This data will be a history of the planning cards that have been generated. The database for this project will be simple, consisting of one table (playingCards table), which will store the data for the playing cards id, the value of the playing card ("Ace", ..., "King") and the suit of the playing card ("Hearts", "Diamonds", "Spades" and "Clubs"). The image below shows an ED of the table/database for this project. 
+
 ![ED](/Readme-Images/ED.drawio.png)
 
 ### Microservice Architecture
