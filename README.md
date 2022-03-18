@@ -9,6 +9,8 @@ Repository for the QA DevOps Core Practical Project.
   * [Microservice Architecture](#Microservice-Architecture)
 * [CI/CD Pipeline](#CICD-Pipeline)
   * [Project Tracking](#Project-Tracking)
+  * [Version Control](#Version-Control)
+    * [Versions](#Versions)
 
 ## Project Brief
 To produce an application, consisting of four microservices, all interacting with one another to generate objects using a defined logic. 
@@ -52,3 +54,9 @@ Project tracking was used to keep track of all of the required tasks for this pr
 ![Trello Board Start](/Readme-Images/Trello-Board-Start.png)
 Here is also a link to the full Trello board: [Trello Board](https://trello.com/b/AS9evaBO/qa-core-practical-project)
 
+### Version Control
+Version Control allows for the application to be stored remotely, meaning that no work can be lost as long as it has been pushed up onto the designated repository. The Version Control system that has been used for this application is Git, utilising GitHub for accessing and reading the information that has been stored within the repository. Version Control also allows for the application to be rolled back to it's last working state should any bugs, or errors, be added and pushed up to the repository. 
+In this application a Feature-Branch model of Version Control has been adopted. The Feature-Branch model essential creates new branches for each of the different features that are being worked on at any time. For example, if working on the Unit Testing, you would create a new branch off of the development branch, write the tests and make sure there are no errors, and then create a pull request back to the development branch. This method ensures that there is always a fully working version of the software that can be rolled back to. The image below shows an example of the Feature-Branch network diagram from the start of this project, and how it had been utilised thus far. 
+![Feature-Branch Model Start]()
+#### Versions
+Only once the development branch has had all features pull-requested onto it, and it has been tested that there are no errors can a version be made. The creation of versions will consist of creating a new pull-request from the development branch back to the main branch. In this process, the CI/CD Pipeline will also perform automated tests through the use of Jenkins to add a final fail safe that there will be no errors in the live environment. The CI/CD Pipline will then be able to build the application and deploy it live to the end users. 
