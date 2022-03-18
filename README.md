@@ -38,6 +38,8 @@ For this project, a database will be used to save and persist data. This data wi
 ### Microservice Architecture
 For development purposes, the database will be stored within a `sqlite` database, however the end goal of the application is that have the database stored within a MySQL database on a server that is accessible from the entire application. The diagram below shows the microservice architecture diagram, outlining how the application is built. 
 
+![Microservices Architecture]()
+
 ## CI/CD Pipeline
 To develop and deploy this application, a full CI/CD Pipeline will be utilised to build, test, deploy, update and maintain the application. There are five main components of the CI/CD Pipeline, which are:
 * Project Tracking (Trello)
