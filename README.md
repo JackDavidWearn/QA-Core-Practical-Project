@@ -48,5 +48,7 @@ To develop and deploy this application, a full CI/CD Pipeline will be utilised t
 * CI Server
 * Deployment Environment
 ### Project Tracking
-
+Project tracking was used to keep track of all of the required tasks for this project. The software used to perform project tracking was Trello. Here, a board had been created for the sprint project/sprint, which included a project backlog (which is a list of tasks that will need to be completed throughout the lifespan of the project), sprint backlog (which is a list of tasks which need to be completed within the designated sprint timeline), In Progress (which is where a task is moved to when it is being worked on), In Review (where the task has been completed but needs a final check before being pushed to the dev branch for example), Completed (when a task is fully completed) and Pushed to Main (which will house all of the sprints tasks that have been completed and push up to the main branch on the Github repository). The image below shows how the Trello board looked at the start of the project.
+![Trello Board Start](/Readme-Images/Trello-Board-Start.png)
+Here is also a link to the full Trello board: [Trello Board](https://trello.com/b/AS9evaBO/qa-core-practical-project)
 
