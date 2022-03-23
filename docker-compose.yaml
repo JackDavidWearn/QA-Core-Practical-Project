@@ -1,6 +1,17 @@
 version: "3.8"
 services:
+  nginx:
+    container_name: nginx
+    image: nginx:alpine
+    ports:
+      - target: 80
+        published: 80
+    volumes:
+      - type: bind
+        source: ./nginx.conf
+        target: /etc/nginx/nginx.conf
   front-end:
+    container_name: front-end
     image: jwearn1999/card-generate-front:latest
     build: ./front-end
     ports:
@@ -10,13 +21,27 @@ services:
     networks:
       - "card-net"
   cardvalue-api:
+    container_name: cardvalue-api
     image: jwearn1999/card-generate-value:latest
     build: ./cardvalue-api
+    deploy:
+      replicas: 3
     networks:
       - "card-net"
   cardsuit-api:
+    container_name: cardsuit-api
     image: jwearn1999/card-generate-suit:latest
     build: ./cardsuit-api
+    deploy:
+      replicas: 3
+    networks:
+      - "card-net"
+  card-api:
+    container_name: card-api
+    image: jwearn1999/card-generate:latest
+    build: ./card-api
+    deploy:
+      replicas: 3
     networks:
       - "card-net"
 networks:
