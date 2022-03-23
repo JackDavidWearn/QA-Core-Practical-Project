@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  front-end:
+    image: jwearn1999/card-generate-front:latest
+    build: ./front-end
+    ports:
+      - published: 80
+        target: 5000
+        protocol: tcp
+    networks:
+      - "card-net"
+  cardvalue-api:
+    image: jwearn1999/card-generate-value:latest
+    build: ./cardvalue-api
+    networks:
+      - "card-net"
+  cardsuit-api:
+    image: jwearn1999/card-generate-suit:latest
+    build: ./cardsuit-api
+    networks:
+      - "card-net"
+networks:
+  - card-net:
