@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Generator</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            color: white;
+        }
+        
+        div.content {
+            margin-left: 25%;
+            padding: 1px 16px;
+            height: 1000px;
+        }
+        
+        h1,
+        h2 {
+            text-align: center;
+        }
+        
+        h1,
+        h2,
+        h3 {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="content">
+        <h1>Random Playing Card Generator</h1>
+        {% block body %} {% endblock body %}
+    </div>
+</body>
+
+</html>
