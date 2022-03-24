@@ -1,7 +1,6 @@
 from application import app
 from flask import request, jsonify, Response
 
-
 @app.route('/get-card', methods=['POST'])
 def card():
     card_data = request.get_json()
