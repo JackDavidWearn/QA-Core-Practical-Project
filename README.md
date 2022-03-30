@@ -12,6 +12,7 @@ Repository for the QA DevOps Core Practical Project.
   * [Version Control](#Version-Control)
     * [Versions](#Versions)
   * [CI Server](#CI-Server)
+* [App Design](#App-Design)
 
 ## Project Brief
 To produce an application, consisting of four microservices, all interacting with one another to generate objects using a defined logic. 
@@ -62,3 +63,8 @@ In this application a Feature-Branch model of Version Control has been adopted. 
 #### Versions
 Only once the development branch has had all features pull-requested onto it, and it has been tested that there are no errors can a version be made. The creation of versions will consist of creating a new pull-request from the development branch back to the main branch. In this process, the CI/CD Pipeline will also perform automated tests through the use of Jenkins to add a final fail safe that there will be no errors in the live environment. The CI/CD Pipline will then be able to build the application and deploy it live to the end users. 
 ### CI Server
+Jenkins was used for the CI server for this project. A Github webhook was created, so that whenever any code was pushed or pull requested onto the main branch of the repository, Jenkins would clone the repository down onto the server, and execute the pipeline script (found within the Jenkinsfile). This would run the main stages of the application, which included the testing, building and deploying stages. The pipeline would also execute the post build actions, which in this case was to archive the artifacts, which were the testing coverage html reports folder. 
+
+TALK ABOUT EACH OF THE DIFFERENT PIPELINE STAGES HERE!
+
+## App Design
