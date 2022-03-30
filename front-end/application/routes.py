@@ -5,10 +5,10 @@ import requests
 
 @app.route('/')
 def index():
-    card_value = requests.get('http://cardvalue-api:5000/get_value')
-    card_suit = requests.get('http://cardsuit-api:5000/get_suit')
-    selected_card = requests.post('http://card_api:5000/get_card', json = {"Value": card_value.text, "Suit": card_suit.text})
-    cards = Cards(card_value = card_value.text, card_suit = card_suit.text)
-    db.session.add(cards)
-    db.session.commit()
-    return render_template('index.html', cards = cards)
+    symbol = requests.get('http://cardvalue-api:5000/get_value')
+    suit = requests.get('http://cardsuit-api:5000/get_suit')
+    card = {"symbol":symbol.text, "suit":suit.text}
+    card_gen = requests.post('http://card-api:5000/card' json=card)
+    json = card_gen.json()
+    value = json["value"]
+    return render_template('index.html', value=value, suit=suit.text)
