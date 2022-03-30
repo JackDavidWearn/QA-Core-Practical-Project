@@ -1,12 +1,14 @@
 from application import app
-from flask import jsonify
-from random import choice
+from flask import Flask, request, Response
+import random
 
 # Declaring the card deck values
-values = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King']
+# symbols = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 
 # Route to get a random card deck suit
 @app.route('/get-values', methods=['GET'])
 def get_values():
-    value = choice(values)
-    return jsonify(value=value)
+    # symbol = choice(symbols)
+    # return Response(symbol)
+    symbols = random.choice(['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'])
+    return Response(symbols, mimetype='text/plain')
