@@ -1,5 +1,5 @@
 from application import app
-from flask import Flask, request, Response
+from flask import Flask, request, Response, jsonify
 
 @app.route('/get-card', methods=['POST'])
 def card():
