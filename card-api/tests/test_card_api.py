@@ -10,7 +10,6 @@ class TestBase(TestCase):
         return app
 
 class TestViews(TestBase):
-
     def test_get_effect(self):
         response = self.client.post(url_for('selected_card'), json={"cards_value": "Ace", "cards_suit": "Clubs"})
         self.assert200(response)
