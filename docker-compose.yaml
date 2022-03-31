@@ -46,3 +46,4 @@ services:
       - "card-net"
 networks:
   - card-net:
+    driver: overlay
