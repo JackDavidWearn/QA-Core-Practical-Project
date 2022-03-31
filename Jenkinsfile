@@ -8,7 +8,7 @@ pipeline {
         }
         stage('building') {
             environment {
-                DOCKER_CREDS = credentials('docker_creds')
+                DOCKER_CREDS = credentials('docker-creds')
             }
             steps {
                 //sh "/bin/bash -c 'docker rmi -f \$(docker images -q)'"
