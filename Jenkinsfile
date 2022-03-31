@@ -1,11 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('testing') {
-            steps {
-                sh "bash test.sh"
-            }
-        }
+
         stage('building') {
             environment {
                 DOCKER_CREDS = credentials('docker-creds')
