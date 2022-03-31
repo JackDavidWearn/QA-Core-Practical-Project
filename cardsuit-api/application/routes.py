@@ -1,5 +1,5 @@
 from application import app
-from flask import Flask, request, Response
+from flask import jsonify
 from random import choice
 
 
@@ -10,4 +10,4 @@ suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 @app.route('/get-suit', methods=['GET'])
 def get_suit():
     suit = choice(suits)
-    return Response(suit)
+    return jsonify(suit=suit)
