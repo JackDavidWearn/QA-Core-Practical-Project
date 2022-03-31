@@ -1,6 +1,6 @@
 from application import app
 from flask import Flask, request, Response
-import random
+from random import choice
 
 
 # Declaring the 4 card deck suits
