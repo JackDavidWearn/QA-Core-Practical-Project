@@ -7,7 +7,7 @@ import requests
 def index():
     value = requests.get('http://cardvalue-api:5000/get-values')
     suit = requests.get('http://cardsuit-api:5000/get-suit')
-    card = requests.post('http://card-api:5000/card', json=(value.json, suit.json))
+    card = requests.post('http://card-api:5000/card', json=dict(value=value.json()["value"], suit=suit.json()["suit"]))
     db.session.add(Cards(cards_value=value.json()["value"], cards_suit=suit.json()["suit"]))
     db.session.commit()
     results = Cards.query.all()
