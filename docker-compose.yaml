@@ -6,9 +6,9 @@ services:
     networks:
       - card-net
     depends_on:
-      - "cardvalue-api"
-      - "cardsuit-api"
-      - "card-api"
+      - cardvalue-api
+      - cardsuit-api
+      - card-api
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   cardvalue-api:
@@ -39,7 +39,7 @@ services:
     networks:
       - card-net
     depends_on:
-      - "front-end"
+      - front-end
 networks:
   card-net:
     # driver: overlay
