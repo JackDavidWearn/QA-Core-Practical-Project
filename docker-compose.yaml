@@ -7,8 +7,8 @@ services:
       - "card-net"
     depends_on:
       - "cardvalue-api"
-        "cardsuit-api"
-        "card-api"
+      - "cardsuit-api"
+      - "card-api"
   cardvalue-api:
     image: jwearn1999/card-generate-value:latest
     build: ./cardvalue-api
