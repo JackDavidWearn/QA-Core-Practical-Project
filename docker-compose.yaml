@@ -40,4 +40,4 @@ services:
       - "front-end"
 networks:
   card-net:
-    driver: overlay
+    # driver: overlay
