@@ -27,7 +27,7 @@ services:
   nginx:
     image: nginx:latest
     ports:
-       - published: 80
+      - published: 80
         target: 80
         protocol: tcp
     volumes:
