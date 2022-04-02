@@ -1,12 +1,9 @@
-from application import app, db
-from application.models import Cards
+from application import app
+# from application.models import Cards
 from flask import render_template
 import requests
 
 @app.route('/')
-@app.route('/home')
-@app.route('/index')
-@app.route('/homepage')
 def index():
     value = requests.get('http://cardvalue-api:5000/get-values')
     suit = requests.get('http://cardsuit-api:5000/get-suit')
