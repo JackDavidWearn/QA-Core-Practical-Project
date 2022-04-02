@@ -4,7 +4,7 @@ services:
     image: jwearn1999/card-generate-front:latest
     build: ./front-end
     networks:
-      - "card-net"
+      - card-net
     depends_on:
       - "cardvalue-api"
       - "cardsuit-api"
@@ -15,17 +15,17 @@ services:
     image: jwearn1999/card-generate-value:latest
     build: ./cardvalue-api
     networks:
-      - "card-net"
+      - card-net
   cardsuit-api:
     image: jwearn1999/card-generate-suit:latest
     build: ./cardsuit-api
     networks:
-      - "card-net"
+      - card-net
   card-api:
     image: jwearn1999/card-generate:latest
     build: ./card-api
     networks:
-      - "card-net"
+      - card-net
   nginx:
     image: nginx:latest
     ports:
@@ -37,7 +37,7 @@ services:
         source: ./nginx.conf
         target: ./etc/nginc/nginx.conf
     networks:
-      - "card-net"
+      - card-net
     depends_on:
       - "front-end"
 networks:
