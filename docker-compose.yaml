@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   mysql:
-    image: jwearn1999/card0generate-db:latest
+    image: jwearn1999/card-generate-db:latest
     build: ./database
     volumes:
       - type: volume
@@ -21,20 +21,20 @@ services:
     volumes:
       - type: bind
         source: ./nginx.conf
-        target: ./etc/nginc/nginx.conf
+        target: ./etc/nginx/nginx.conf
     networks:
       - "card-net"
     depends_on:
-      - front-end
+      - "front-end"
   front-end:
     image: jwearn1999/card-generate-front:latest
     build: ./front-end
     networks:
       - "card-net"
     depends_on:
-      - cardvalue-api
-      - cardsuit-api
-      - card-api
+      - "cardvalue-api"
+      - "cardsuit-api"
+      - "card-api"
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   cardvalue-api:
