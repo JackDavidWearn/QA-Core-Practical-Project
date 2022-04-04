@@ -52,8 +52,7 @@ card_deck = {'SpadesA':'/cards/Spades/A.png',
              'Clubs10':'/cards/Clubs/10.png',
              'ClubsJ':'/cards/Clubs/J.png',
              'ClubsQ':'/cards/Clubs/Q.png',
-             'ClubsK':'/cards/Clubs/K.png',
-             'JokerJoker':'/cards/Jokers/Joker_1.png'
+             'ClubsK':'/cards/Clubs/K.png'
             }
 
 @app.route('/card', methods=['POST'])
@@ -75,8 +74,7 @@ def card():
               '10':'Ten', 
               'J':'Jack', 
               'Q':'Queen', 
-              'K':'King', 
-              'Joker':'Joker'
+              'K':'King' 
             }
     written_value = values[value]
     return jsonify({"value": written_value, "suit": suit, "image": card_image})

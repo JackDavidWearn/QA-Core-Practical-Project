@@ -4,7 +4,7 @@ from random import choice
 
 
 # Declaring the 4 card deck suits
-suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades', 'Joker']
+suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 
 # Route to get a random card deck suit
 @app.route('/get-suit', methods=['GET'])
