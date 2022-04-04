@@ -1,5 +1,19 @@
 version: "3.8"
 services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - published: 80
+        target: 80
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: ./nginx.conf
+        target: ./etc/nginc/nginx.conf
+    networks:
+      - card-net
+    depends_on:
+      - front-end
   front-end:
     image: jwearn1999/card-generate-front:latest
     build: ./front-end
@@ -26,20 +40,6 @@ services:
     build: ./card-api
     networks:
       - card-net
-  nginx:
-    image: nginx:latest
-    ports:
-      - published: 80
-        target: 80
-        protocol: tcp
-    volumes:
-      - type: bind
-        source: ./nginx.conf
-        target: ./etc/nginc/nginx.conf
-    networks:
-      - card-net
-    depends_on:
-      - front-end
 networks:
   card-net:
     # driver: overlay
