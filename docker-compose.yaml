@@ -4,6 +4,7 @@ networks:
     driver: overlay
 services:
   nginx:
+    container_name: nginx
     image: nginx:latest
     ports:
       - published: 80
