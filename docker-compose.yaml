@@ -30,8 +30,8 @@ services:
     image: jwearn1999/card-generate-front:latest
     build: ./front-end
     ports:
-      - published: 80
-        target: 5000
+      - published: 5000
+        target: 80
     networks:
       - "card-net"
     depends_on:
