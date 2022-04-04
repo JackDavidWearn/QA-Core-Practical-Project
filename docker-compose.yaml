@@ -12,7 +12,7 @@ services:
     volumes:
       - type: bind
         source: ./nginx.conf
-        target: ./nginx.conf
+        target: /etc/nginx/nginx.conf
     networks:
       - "card-net"
   front-end:
