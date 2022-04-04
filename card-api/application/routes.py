@@ -58,9 +58,9 @@ card_deck = {'SpadesA':'./cards/Spades/A.png',
 @app.route('/card', methods=['POST'])
 def card():
     cards = request.get_json()
-    value = cards["value"]
+    symbol = cards["symbol"]
     suit = cards["suit"]
-    card_image_key = suit+value
+    card_image_key = suit+symbol
     card_image = card_deck[card_image_key]
     values = {'A':'Ace', 
               '2':'Two', 
@@ -76,8 +76,8 @@ def card():
               'Q':'Queen', 
               'K':'King' 
             }
-    written_value = values[value]
-    return jsonify({"value": written_value, "suit": suit, "image": card_image})
+    value = values[symbol]
+    return jsonify({"value": value, "suit": suit, "image": card_image})
     
     
     # card_json = request.get_json()
