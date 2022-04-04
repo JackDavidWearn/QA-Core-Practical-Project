@@ -4,7 +4,7 @@ networks:
     driver: overlay
 services:
   nginx:
-    image: nginx:latest
+    image: nginx:alpine
     ports:
       - published: 80
         target: 80
