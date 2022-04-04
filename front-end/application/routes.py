@@ -5,14 +5,14 @@ import requests
 
 @app.route('/')
 def index():
-    value = requests.get('http://cardvalue-api:5000/get-values')
+    symbol = requests.get('http://cardvalue-api:5000/get-values')
     suit = requests.get('http://cardsuit-api:5000/get-suit')
-    card = {"value": value.text, "suit": suit.text}
+    card = {"symbol": symbol.text, "suit": suit.text}
     card_gen = requests.post('http://card-api:5000/card', json=card)
     json = card_gen.json()
     image = json["image"]
-    card_value = json["value"]
-    return render_template('index.html', image=image, card_value=card_value, suit=suit.text)
+    value = json["value"]
+    return render_template('index.html', image=image, value=value, suit=suit.text)
 
 
 
