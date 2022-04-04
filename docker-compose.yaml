@@ -4,7 +4,6 @@ networks:
     driver: overlay
 services:
   nginx:
-    container_name: nginx
     image: nginx:latest
     ports:
       - published: 80
@@ -16,8 +15,6 @@ services:
         target: ./nginx.conf
     networks:
       - "card-net"
-    depends_on:
-      - "front-end"
   front-end:
     image: jwearn1999/card-generate-front:latest
     build: ./front-end
