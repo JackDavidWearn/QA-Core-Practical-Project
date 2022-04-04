@@ -1,19 +1,19 @@
 version: "3.8"
 services:
-  nginx:
-    image: nginx:latest
-    ports:
-      - published: 80
-        target: 80
-        protocol: tcp
-    volumes:
-      - type: bind
-        source: ./nginx.conf
-        target: ./etc/nginx/nginx.conf
-    networks:
-      - "card-net"
-    depends_on:
-      - "front-end"
+  # nginx:
+  #   image: nginx:latest
+  #   ports:
+  #     - published: 80
+  #       target: 80
+  #       protocol: tcp
+  #   volumes:
+  #     - type: bind
+  #       source: ./nginx.conf
+  #       target: ./etc/nginx/nginx.conf
+  #   networks:
+  #     - "card-net"
+  #   depends_on:
+  #     - "front-end"
   mysql:
     image: jwearn1999/card-generate-db:latest
     build: ./database
@@ -30,8 +30,8 @@ services:
     image: jwearn1999/card-generate-front:latest
     build: ./front-end
     ports:
-      - published: 5000
-        target: 80
+      - published: 80
+        target: 5000
     networks:
       - "card-net"
     depends_on:
