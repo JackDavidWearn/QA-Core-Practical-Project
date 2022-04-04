@@ -1,13 +1,11 @@
 from application import app
 from flask import Response
-from random import choice
-
-
-# Declaring the 4 card deck suits
-suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
+import random
 
 # Route to get a random card deck suit
 @app.route('/get-suit', methods=['GET'])
 def get_suit():
-    suit = choice(suits)
+    # Declaring the 4 card deck suits
+    suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
+    suit = random.choice(suits)
     return Response(suit, mimetype="text/plain")
