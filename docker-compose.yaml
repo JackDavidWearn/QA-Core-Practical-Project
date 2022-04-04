@@ -4,7 +4,7 @@ networks:
     driver: overlay
 services:
   nginx:
-    image: nginx:alpine
+    image: nginx:latest
     ports:
       - published: 80
         target: 80
@@ -13,6 +13,8 @@ services:
       - type: bind
         source: ./nginx.conf
         target: /etc/nginx/nginx.conf
+    depends_on:
+      - "front-end"
     networks:
       - "card-net"
   front-end:
@@ -20,10 +22,10 @@ services:
     build: ./front-end
     networks:
       - "card-net"
-    # depends_on:
-    #   - "cardvalue-api"
-    #   - "cardsuit-api"
-    #   - "card-api"
+    depends_on:
+      - "cardvalue-api"
+      - "cardsuit-api"
+      - "card-api"
     # environment:
     #   MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   cardvalue-api:
