@@ -43,7 +43,7 @@ services:
     networks:
       - "card-net"
   card-api:
-    image: jwearn1999/card-generate:v1
+    image: jwearn1999/card-generate:v2
     build: ./card-api
     deploy:
       replicas: 3
