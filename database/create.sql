@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS cardsdb;
+USE cardsdb;
+
 CREATE TABLE IF NOT EXISTS cards (
     pk_cards_id INT PRIMARY KEY AUTO_INCREMENT,
     cards_value VARCHAR(20) NOT NULL,
