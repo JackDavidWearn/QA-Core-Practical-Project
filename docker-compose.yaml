@@ -6,7 +6,7 @@ networks:
     driver: overlay
 services:
   mysql:
-    image: jwearn1999/card-generate-db:v5
+    image: jwearn1999/card-generate-db:v6
     build: ./database
     volumes:
       - type: volume
