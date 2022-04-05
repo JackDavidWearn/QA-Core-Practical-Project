@@ -18,7 +18,7 @@ services:
     networks:
       - "card-net"
   front-end:
-    image: jwearn1999/card-generate-front:v13
+    image: jwearn1999/card-generate-front:v14
     build: ./front-end
     networks:
       - "card-net"
@@ -29,7 +29,7 @@ services:
     # environment:
     #   MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   cardvalue-api:
-    image: jwearn1999/card-generate-value:v3
+    image: jwearn1999/card-generate-value:v4
     build: ./cardvalue-api
     networks:
       - "card-net"
