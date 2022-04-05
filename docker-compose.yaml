@@ -16,7 +16,7 @@ services:
       - "card-net"
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: card_db
+      MYSQL_DATABASE: card-db
   nginx:
     image: nginx:latest
     ports:
