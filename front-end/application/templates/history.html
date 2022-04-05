@@ -1,4 +1,5 @@
 {% extends 'layout.html' %} {% block body %}
 <h2>Card History</h2>
-<br> {% for card in events_history %} {{ card.__str__() }} {{ card.date_generated }}
+<br> {% for card in events_history %} {{ card.__str__() }}
+<p>Date Generated: </p> {{ card.date_generated }}
 <br> {% endfor %} {% endblock body %}
