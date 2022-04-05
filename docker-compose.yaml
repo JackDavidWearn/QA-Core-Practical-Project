@@ -6,7 +6,7 @@ networks:
     driver: overlay
 services:
   mysql:
-    image: jwearn1999/card-generate-db:v4
+    image: jwearn1999/card-generate-db:v5
     build: ./database
     volumes:
       - type: volume
@@ -32,7 +32,7 @@ services:
     networks:
       - "card-net"  
   front-end:
-    image: jwearn1999/card-generate-front:v19
+    image: jwearn1999/card-generate-front:v20
     build: ./front-end
     networks:
       - "card-net"
