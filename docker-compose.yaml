@@ -6,7 +6,7 @@ volumes:
   card-vol:
 services:
   mysql:
-    image: jwearn1999/card-generate-db:v2
+    image: jwearn1999/card-generate-db:v3
     build: ./database
     volumes:
       - type: volume
