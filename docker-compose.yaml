@@ -18,7 +18,7 @@ services:
     networks:
       - "card-net"
   front-end:
-    image: jwearn1999/card-generate-front:v9
+    image: jwearn1999/card-generate-front:v10
     build: ./front-end
     networks:
       - "card-net"
