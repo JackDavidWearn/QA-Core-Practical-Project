@@ -6,7 +6,7 @@ volumes:
   card-vol:
 services:
   mysql:
-    image: jwearn1999/card-generate-db:v1
+    image: jwearn1999/card-generate-db:v2
     build: ./database
     volumes:
       - type: volume
@@ -32,7 +32,7 @@ services:
     networks:
       - "card-net"  
   front-end:
-    image: jwearn1999/card-generate-front:v17
+    image: jwearn1999/card-generate-front:v18
     build: ./front-end
     networks:
       - "card-net"
