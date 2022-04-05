@@ -1,7 +1,6 @@
 {% extends 'layout.html' %} {% block body %}
 
 <h1>Your Card is the: {{ value }} of {{ suit }}</h1>
-
+<br>
 <h1><img src="{{ url_for('static', filename=image) }}" width="200" height="300"></h1>
-
-{% endblock body %}
+<br> % for card in cards %} {{ card.__str__()}}<br> {% endfor %} {% endblock body %}

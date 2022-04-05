@@ -1,5 +1,5 @@
-from application import app
-# from application.models import Cards
+from application import app, db
+from application.models import Cards
 from flask import render_template
 import requests
 
@@ -13,7 +13,10 @@ def index():
     image = json["image"]
     value = json["value"]
     image_save = f'{json["image"]}'
-    return render_template('index.html', symbol=symbol.text, suit=suit.text, image=image_save, value=value)
+    db.session.add(Cards(cards_value=symbol.text, cards_suit=suit.text))
+    db.session.commit()
+    results = Cards.query.all()
+    return render_template('index.html', symbol=symbol.text, suit=suit.text, image=image_save, value=value, results=results)
 
 
 

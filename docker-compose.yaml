@@ -2,7 +2,21 @@ version: "3.8"
 networks:
   card-net:
     driver: overlay
+volumes:
+  card-vol:
 services:
+  mysql:
+    image: jwearn1999/card-generate-db:latest
+    build: ./database
+    volumes:
+      - type: volume
+        source: card-vol
+        target: /var/lib/mysql
+    networks:
+      - "card-net"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: card_db
   nginx:
     image: nginx:latest
     ports:
@@ -16,7 +30,7 @@ services:
     depends_on:
       - "front-end"
     networks:
-      - "card-net"
+      - "card-net"  
   front-end:
     image: jwearn1999/card-generate-front:v15
     build: ./front-end
@@ -26,8 +40,8 @@ services:
       - "cardvalue-api"
       - "cardsuit-api"
       - "card-api"
-    # environment:
-    #   MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   cardvalue-api:
     image: jwearn1999/card-generate-value:v4
     build: ./cardvalue-api
