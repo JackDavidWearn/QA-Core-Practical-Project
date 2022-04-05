@@ -1,7 +1,7 @@
 from application import db
 
 class Cards(db.Model):
-    pk_cards_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     cards_value = db.Column(db.String(50))
     cards_suit = db.Column(db.String(50))
 
