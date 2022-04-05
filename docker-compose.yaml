@@ -37,6 +37,7 @@ services:
     networks:
       - "card-net"
     depends_on:
+      - "mysql"
       - "cardvalue-api"
       - "cardsuit-api"
       - "card-api"
