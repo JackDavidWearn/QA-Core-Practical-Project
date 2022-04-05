@@ -51,6 +51,7 @@ To develop and deploy this application, a full CI/CD Pipeline will be utilised t
 * Development Environment
 * CI Server
 * Deployment Environment
+
 ### Project Tracking
 Project tracking was used to keep track of all of the required tasks for this project. The software used to perform project tracking was Trello. Here, a board had been created for the sprint project/sprint, which included a project backlog (which is a list of tasks that will need to be completed throughout the lifespan of the project), sprint backlog (which is a list of tasks which need to be completed within the designated sprint timeline), In Progress (which is where a task is moved to when it is being worked on), In Review (where the task has been completed but needs a final check before being pushed to the dev branch for example), Completed (when a task is fully completed) and Pushed to Main (which will house all of the sprints tasks that have been completed and push up to the main branch on the Github repository). The image below shows how the Trello board looked at the start of the project.
 ![Trello Board Start](/Readme-Images/Trello-Board-Start.png)
@@ -60,11 +61,30 @@ Here is also a link to the full Trello board: [Trello Board](https://trello.com/
 Version Control allows for the application to be stored remotely, meaning that no work can be lost as long as it has been pushed up onto the designated repository. The Version Control system that has been used for this application is Git, utilising GitHub for accessing and reading the information that has been stored within the repository. Version Control also allows for the application to be rolled back to it's last working state should any bugs, or errors, be added and pushed up to the repository. 
 In this application a Feature-Branch model of Version Control has been adopted. The Feature-Branch model essential creates new branches for each of the different features that are being worked on at any time. For example, if working on the Unit Testing, you would create a new branch off of the development branch, write the tests and make sure there are no errors, and then create a pull request back to the development branch. This method ensures that there is always a fully working version of the software that can be rolled back to. The image below shows an example of the Feature-Branch network diagram from the start of this project, and how it had been utilised thus far. 
 ![Feature-Branch Model Start](/Readme-Images/Network-Diagram-Start.png)
+
 #### Versions
 Only once the development branch has had all features pull-requested onto it, and it has been tested that there are no errors can a version be made. The creation of versions will consist of creating a new pull-request from the development branch back to the main branch. In this process, the CI/CD Pipeline will also perform automated tests through the use of Jenkins to add a final fail safe that there will be no errors in the live environment. The CI/CD Pipline will then be able to build the application and deploy it live to the end users. 
+
 ### CI Server
 Jenkins was used for the CI server for this project. A Github webhook was created, so that whenever any code was pushed or pull requested onto the main branch of the repository, Jenkins would clone the repository down onto the server, and execute the pipeline script (found within the Jenkinsfile). This would run the main stages of the application, which included the testing, building and deploying stages. The pipeline would also execute the post build actions, which in this case was to archive the artifacts, which were the testing coverage html reports folder. 
 
-TALK ABOUT EACH OF THE DIFFERENT PIPELINE STAGES HERE!
+The first stage of the Jenkins pipeline was testing. Within this stage, each of the different APIs are tested to ensure that there are no bugs or unexpected errors when deploying the application. Should any of the tests fail, then the Jenkins pipeline will skip the next steps and not deploy the application should anything fail. The screenshots below show the final stage of the pipeline which saves the html coverage report for each of the different tests (front-end, cardvalue-api, cardsuit-api and card-api). 
+![front-end coverage report]()
+
+![cardvalue-api coverage report]()
+
+![cardsuit-api coverage report]()
+
+![card-api coverage report]()
+
+The next stage of the pipeline is the building stage. Within this stage, the Docker images from the docker-compose.yaml file. I.e., all of the APIs, database and NGINX. The final step of this stage is to push the images to Dockerhub, where they can be retrieved. 
+
+The final stage of the pipeline is the deploying stage. In this stage the application is deployed onto the swarm-manager/swarm-workers and can be accessed via the web-browser from the IP address for the swarm-manager virtual machine. 
 
 ## App Design
+The original design for the application was to have the home page display a random string of the cards thats has been generated. This can be seen in the screenshot below. Whenever the webpage is refreshed, or the "Generate New Card" button is clicked, the card text being displayed will change for a randomly generated card value and suit. This can be seen in the screenshot below:
+![Original design for the application]()
+
+I then redesigned the application to also include an image of the card that has been generated. This is done through the use of a static folder which houses all of the different card images. An image key is then generated which is used to find the correct image in the "card deck", which is a python dictionary. This card image is then displayed through the use of the index.html webpage, which gets the `url_for` the static folder and adds the filename of the card that has been generated. This can be seen in the screenshot below:
+![New design with image]()
+
