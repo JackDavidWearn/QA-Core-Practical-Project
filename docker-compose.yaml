@@ -16,7 +16,7 @@ services:
       - "card-net"
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: card-db
+      MYSQL_DATABASE: card_db
   nginx:
     image: nginx:latest
     ports:
@@ -32,7 +32,7 @@ services:
     networks:
       - "card-net"  
   front-end:
-    image: jwearn1999/card-generate-front:v15
+    image: jwearn1999/card-generate-front:v16
     build: ./front-end
     networks:
       - "card-net"
@@ -43,19 +43,19 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   cardvalue-api:
-    image: jwearn1999/card-generate-value:v4
+    image: jwearn1999/card-generate-value:v5
     build: ./cardvalue-api
     networks:
       - "card-net"
   cardsuit-api:
-    image: jwearn1999/card-generate-suit:v3
+    image: jwearn1999/card-generate-suit:v4
     build: ./cardsuit-api
     deploy:
       replicas: 3
     networks:
       - "card-net"
   card-api:
-    image: jwearn1999/card-generate:v6
+    image: jwearn1999/card-generate:v7
     build: ./card-api
     networks:
       - "card-net"
