@@ -52,7 +52,8 @@ card_deck = {'SpadesA':'static/spades_A.png',
              'Clubs10':'static/clubs_10.png',
              'ClubsJ':'static/clubs_J.png',
              'ClubsQ':'static/clubs_Q.png',
-             'ClubsK':'static/clubs_k.png'}
+             'ClubsK':'static/clubs_k.png'
+            }
 
 @app.route('/card', methods=['POST'])
 def card():
@@ -60,7 +61,6 @@ def card():
     symbol = cards["symbol"]
     suit = cards["suit"]
     card_image_key = suit+symbol
-    print(card_image_key)
     card_image = card_deck[card_image_key]
     values = {'A':'Ace', 
               '2':'Two', 
