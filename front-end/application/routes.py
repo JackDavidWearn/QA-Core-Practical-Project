@@ -13,7 +13,8 @@ def index():
     image = json["image"]
     value = json["value"]
     image_save = f'{json["image"]}'
-    db.session.add(Cards(cards_value=symbol.text, cards_suit=suit.text))
+    add = Cards(cards_value=symbol.text, cards_suit=suit.text)
+    db.session.add(add)
     db.session.commit()
     results = Cards.query.all()
     return render_template('index.html', symbol=symbol.text, suit=suit.text, image=image_save, value=value, results=results)
