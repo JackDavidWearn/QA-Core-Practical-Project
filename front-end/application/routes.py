@@ -2,6 +2,7 @@ from application import app
 # from application.models import Cards
 from flask import render_template
 import requests
+from PIL import Image
 
 @app.route('/')
 def index():
@@ -12,7 +13,8 @@ def index():
     json = card_gen.json()
     image = json["image"]
     value = json["value"]
-    image_save = f'/front-end/application/templates{json["image"]}'
+    image_save = Image.open('{image}')
+    # image_save = f'{json["image"]}'
     return render_template('index.html', symbol=symbol.text, suit=suit.text, image=image_save, value=value)
 
 
