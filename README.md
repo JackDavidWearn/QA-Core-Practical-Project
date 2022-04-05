@@ -35,14 +35,14 @@ Prior to the commencement of the project, a Risk Assessment Table was produced. 
 Users will not be submitting any information (personal information) into the application, and so the main focus of the risk assessment and risk assessment table was the operational risks. Operational risks are the risks which are associated solely on the building/creating of the application and deployment of the application. As seen from the table above, each of the different risks was assigned a Probablity and Impact score both before and after the control variable that will be used. This is done to quantify the risk and act as a guide throughout the development of the application. 
 
 ### Entity Diagram
-For this project, a database will be used to save and persist data. This data will be a history of the planning cards that have been generated. The database for this project will be simple, consisting of one table (playingCards table), which will store the data for the playing cards id, the value of the playing card ("Ace", ..., "King") and the suit of the playing card ("Hearts", "Diamonds", "Spades" and "Clubs"). The image below shows an ED of the table/database for this project. 
+For this project, a database will be used to save and persist data. This data will be a history of the planning cards that have been generated. The database for this project will be simple, consisting of one table (playingCards table), which will store the data for the playing cards id, the value of the playing card ("Ace", ..., "King") and the suit of the playing card ("Hearts", "Diamonds", "Spades" and "Clubs"). The image below shows an ED of the table/database for this project. At the start of the project, I had planned on having the date the card was generated, as shown in the diagram below. However, this was later revised to just store the cards value and suit. 
 
 ![ED](/Readme-Images/ED.drawio.png)
 
 ### Microservice Architecture
-For development purposes, the database will be stored within a `sqlite` database, however the end goal of the application is that have the database stored within a MySQL database on a server that is accessible from the entire application. The diagram below shows the microservice architecture diagram, outlining how the application is built. 
+For development purposes, the database will be stored within a `sqlite` database, however the end goal of the application is that have the data is stored within a MySQL database on a server that is accessible from the entire application. The diagram below shows the microservice architecture diagram, outlining how the application is built. 
 
-![Microservices Architecture]()
+![Microservices Architecture](/Readme-Images/microservices_architecture.drawio.png)
 
 ## CI/CD Pipeline
 To develop and deploy this application, a full CI/CD Pipeline will be utilised to build, test, deploy, update and maintain the application. There are five main components of the CI/CD Pipeline, which are:
@@ -61,6 +61,9 @@ Here is also a link to the full Trello board: [Trello Board](https://trello.com/
 Version Control allows for the application to be stored remotely, meaning that no work can be lost as long as it has been pushed up onto the designated repository. The Version Control system that has been used for this application is Git, utilising GitHub for accessing and reading the information that has been stored within the repository. Version Control also allows for the application to be rolled back to it's last working state should any bugs, or errors, be added and pushed up to the repository. 
 In this application a Feature-Branch model of Version Control has been adopted. The Feature-Branch model essential creates new branches for each of the different features that are being worked on at any time. For example, if working on the Unit Testing, you would create a new branch off of the development branch, write the tests and make sure there are no errors, and then create a pull request back to the development branch. This method ensures that there is always a fully working version of the software that can be rolled back to. The image below shows an example of the Feature-Branch network diagram from the start of this project, and how it had been utilised thus far. 
 ![Feature-Branch Model Start](/Readme-Images/Network-Diagram-Start.png)
+
+Further on down the project line, the feature branch model looked more like the screenshot below. This captures how new branches were created, merged with development branches and finally sent back into the production main branch ready for deployment. 
+![Feature-Branch Model During](/Readme-Images/Feature-branch-model-example.png)
 
 #### Versions
 Only once the development branch has had all features pull-requested onto it, and it has been tested that there are no errors can a version be made. The creation of versions will consist of creating a new pull-request from the development branch back to the main branch. In this process, the CI/CD Pipeline will also perform automated tests through the use of Jenkins to add a final fail safe that there will be no errors in the live environment. The CI/CD Pipline will then be able to build the application and deploy it live to the end users. 
@@ -83,8 +86,15 @@ The final stage of the pipeline is the deploying stage. In this stage the applic
 
 ## App Design
 The original design for the application was to have the home page display a random string of the cards thats has been generated. This can be seen in the screenshot below. Whenever the webpage is refreshed, or the "Generate New Card" button is clicked, the card text being displayed will change for a randomly generated card value and suit. This can be seen in the screenshot below:
-![Original design for the application]()
+![Original design for the application](/Readme-Images/original_design.png)
 
 I then redesigned the application to also include an image of the card that has been generated. This is done through the use of a static folder which houses all of the different card images. An image key is then generated which is used to find the correct image in the "card deck", which is a python dictionary. This card image is then displayed through the use of the index.html webpage, which gets the `url_for` the static folder and adds the filename of the card that has been generated. This can be seen in the screenshot below:
-![New design with image]()
+![New design with image](/Readme-Images/new_design_w_card_image.png)
+
+The next design phase was to create a history of the cards that had been generated, store them in a database and display the full history of the cards that had been generated on another web page. The home page would also be changed to show the last five cards that have been drawn. This design change can be seen in the screenshots below:
+![Home page with five card history]()
+
+![History page with card history from database]()
+
+
 
