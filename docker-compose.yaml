@@ -1,48 +1,62 @@
 version: "3.8"
+volumes:
+  card-vol:
+networks:
+  card-net:
+    driver: overlay
 services:
+  mysql:
+    image: jwearn1999/card-generate-db:v7
+    build: ./database
+    volumes:
+      - type: volume
+        source: card-vol
+        target: /var/lib/mysql
+    networks:
+      - "card-net"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: carddb
   nginx:
-    container_name: nginx
-    image: nginx:alpine
+    image: nginx:latest
     ports:
-      - target: 80
-        published: 80
+      - published: 80
+        target: 80
+        protocol: tcp
     volumes:
       - type: bind
         source: ./nginx.conf
         target: /etc/nginx/nginx.conf
+    depends_on:
+      - "front-end"
+    networks:
+      - "card-net"  
   front-end:
-    container_name: front-end
-    image: jwearn1999/card-generate-front:latest
+    image: jwearn1999/card-generate-front:v20
     build: ./front-end
-    ports:
-      - published: 80
-        target: 5000
-        protocol: tcp
     networks:
       - "card-net"
+    depends_on:
+      - "mysql"
+      - "cardvalue-api"
+      - "cardsuit-api"
+      - "card-api"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   cardvalue-api:
-    container_name: cardvalue-api
-    image: jwearn1999/card-generate-value:latest
+    image: jwearn1999/card-generate-value:v5
     build: ./cardvalue-api
-    deploy:
-      replicas: 3
     networks:
       - "card-net"
   cardsuit-api:
-    container_name: cardsuit-api
-    image: jwearn1999/card-generate-suit:latest
+    image: jwearn1999/card-generate-suit:v4
     build: ./cardsuit-api
     deploy:
       replicas: 3
     networks:
       - "card-net"
   card-api:
-    container_name: card-api
-    image: jwearn1999/card-generate:latest
+    image: jwearn1999/card-generate:v7
     build: ./card-api
-    deploy:
-      replicas: 3
     networks:
       - "card-net"
-networks:
-  - card-net:

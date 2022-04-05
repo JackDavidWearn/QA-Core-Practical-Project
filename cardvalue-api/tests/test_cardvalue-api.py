@@ -101,10 +101,3 @@ class TestView(TestBase):
         response = self.client.get(url_for('get_values'))
         self.assert200(response)
         self.assertIn(b'King', response.data)
-
-    # Testing for non-existant choice in random choice
-    @patch('application.routes.choice', return_value='Joker')
-    def test_get_values_not_exists(self, mock_func):
-        response = self.client.get(url_for('get_suit'))
-        self.assert200(response)
-        self.assertNotIn(b'Joker', response.data)
