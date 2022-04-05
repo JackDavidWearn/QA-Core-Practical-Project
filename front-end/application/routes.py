@@ -12,7 +12,8 @@ def index():
     json = card_gen.json()
     image = json["image"]
     value = json["value"]
-    return render_template('index.html', symbol=symbol.text, suit=suit.text, image=image, value=value)
+    image_save = f"/static/{json['image']}.png"
+    return render_template('index.html', symbol=symbol.text, suit=suit.text, image=image_save, value=value)
 
 
 
