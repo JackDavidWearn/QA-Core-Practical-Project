@@ -52,7 +52,7 @@ card_deck = {'SpadesA':'spades_A.png',
              'Clubs10':'clubs_10.png',
              'ClubsJ':'clubs_J.png',
              'ClubsQ':'clubs_Q.png',
-             'ClubsK':'clubs_k.png'
+             'ClubsK':'clubs_K.png'
             }
 
 @app.route('/card', methods=['POST'])
