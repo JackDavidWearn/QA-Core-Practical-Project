@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://root:{getenv('MYSQL_ROOT_PASSWORD')}@35.246.110.63:3306/carddb"
+app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://root:{getenv('MYSQL_ROOT_PASSWORD')}@35.246.110.63:3306/card_db"
 db = SQLAlchemy(app)
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'

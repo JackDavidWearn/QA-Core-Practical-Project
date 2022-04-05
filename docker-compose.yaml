@@ -6,7 +6,7 @@ networks:
     driver: overlay
 services:
   mysql:
-    image: jwearn1999/card-generate-db:v8
+    image: jwearn1999/card-generate-db:v9
     build: ./database
     volumes:
       - type: volume
@@ -16,7 +16,7 @@ services:
       - "card-net"
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: carddb
+      MYSQL_DATABASE: card_db
   nginx:
     image: nginx:latest
     ports:
