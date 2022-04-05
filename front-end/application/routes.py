@@ -1,5 +1,5 @@
-from application import app, db
-from application.models import Cards
+from application import app
+# from application.models import Cards
 from flask import render_template
 import requests
 
