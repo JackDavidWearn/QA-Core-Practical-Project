@@ -5,4 +5,4 @@
 <h1><img src="{{ url_for('static', filename=image) }}" width="200" height="300"></h1>
 <br>
 <h1>The last Five Cards generated are as follows: </h1><br>
-<p>{% for result in results %} {{ result.__str__()}}</p><br> {% endfor %} {% endblock body %}
+<p>{% for result in results %} {{ result.__str__()}}<br> {% endfor %}</p> {% endblock body %}
