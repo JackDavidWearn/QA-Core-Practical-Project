@@ -25,15 +25,10 @@ class TestBase(TestCase):
 
 class TestView(TestBase):
     def test_get_frontend_home(self):
-        suit = "Diamonds"
-        symbol = "King"
-        value = "King of Diamonds"
-        image = "static/diamonds_K.png"
-
         with requests_mock.Mocker() as m:
-            m.get('http://cardvalue-api:5000/get-values', text=symbol)
-            m.get('http://cardsuit-api:5000/get_suit', text=suit)
-            m.post('http://card-api:5000/card', json={"value":value, "suit":suit, "image":image})
+            m.get('http://cardvalue-api:5000/get-values', text="K")
+            m.get('http://cardsuit-api:5000/get_suit', text="Diamonds")
+            m.post('http://card-api:5000/card', json={"value":"King", "suit":"Diamonds", "image":"static/diamonds_K.png"})
             response = self.client.get(url_for('index'))
             self.assert200(response)
             self.assertIn(b'King of Clubs', response.data)
@@ -42,5 +37,5 @@ class TestView(TestBase):
 
 def test_get_history(self):
         response = self.client.get(url_for('history'))
-        self.assertEqual(response.status_code, 200)
+        self.assert200(response)
         self.assertIn(b'K of Clubs', response.data)
