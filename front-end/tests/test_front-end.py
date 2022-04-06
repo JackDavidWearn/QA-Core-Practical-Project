@@ -14,7 +14,7 @@ class TestBase(TestCase):
         return app
     
     def setUp(self):
-        sample_result = Cards(card_value='K', card_suit='Clubs', date_generated=date(2022, 4, 5))
+        sample_result = Cards(card_value='King', card_suit='Clubs', date_generated="2022-04-05")
         db.create_all()
         db.session.add(sample_result)
         db.session.commit()
@@ -35,7 +35,7 @@ class TestView(TestBase):
             self.assertIn(b'King of Diamonds', response.data)
             self.assertIn(b'static/diamonds_k.png', response.data)
 
-def test_get_history(self):
+    def test_get_history(self):
         response = self.client.get(url_for('history'))
         self.assert200(response)
         self.assertIn(b'K of Clubs', response.data)
