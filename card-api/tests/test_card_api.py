@@ -10,7 +10,9 @@ class TestBase(TestCase):
         return app
 
 class TestViews(TestBase):
-    def test_get_effect(self):
-        response = self.client.post(url_for('selected_card'), json={"cards_value": "Ace", "cards_suit": "Clubs"})
+    def test_get_ace_clubs(self):
+        response = self.client.post(url_for('selected_card'), json={"cards_value": "Ace", "cards_suit": "Clubs", "image":"ClubsA.png"})
         self.assert200(response)
         self.assertIn(b'Ace of Clubs', response.data)
+
+    
