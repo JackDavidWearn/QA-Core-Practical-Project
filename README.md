@@ -131,9 +131,13 @@ I have setup the following virtual machines. These were all created on Google Cl
 * jenkins
 * swarm-manager
 * swarm-worker
+
 The dev branch is used to make changes to the application itself. Within Ansible, the setup for this branch is to clone down the working repository from GitHub, which can then be used with VSCode to make changes to the web application. This is also helpful when working towards a rolling update, where you can work on the application, make a change and then push that to the Jenkins server to deploy. 
+
 The instance-1 virtual machine was used as the Asnible server. This is where the code for the configuration is held. Here, there is a playbook, inventory and roles which are used to configure each of the differenet virtual machines ready to deploy the web application. The first step is to export the mysql root password, and then run the following `ansible-playbook -i inventory.yml playbook.yml -e mysql_root_password=${mysql_root_password}`. 
+
 The jenkins virtual machine was initially configured manually, by installing Jenkins and setting up the admin user. Once this was done, Ansible could then do some more configuration for the virtual machine by adding the Jenkins user to the Docker group. 
+
 The swarm-manager and the swarm-worker are where the Docker swarm is running, with the swarm-worker joined onto the swarm-manager. The application is viewed by the end user from the swarm-manager virtual machine. 
 
 The image below shows these virtual machines on GCP. 
