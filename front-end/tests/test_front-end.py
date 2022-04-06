@@ -33,7 +33,6 @@ class TestView(TestBase):
             self.assert200(response)
             self.assertIn(b'K of Clubs', response.data)
             self.assertIn(b'K of Diamonds', response.data)
-            self.assertIn(b'/static/diamonds_k.png', response.data)
 
     def test_get_history(self):
         response = self.client.get(url_for('history'))
