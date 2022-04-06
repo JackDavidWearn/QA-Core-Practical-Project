@@ -14,7 +14,7 @@ class TestBase(TestCase):
         return app
     
     def setUp(self):
-        sample_result = Cards(cards_value='King', cards_suit='Clubs', date_generated="2022-04-05")
+        sample_result = Cards(cards_value='K', cards_suit='Clubs', date_generated=date(2022, 4, 5))
         db.create_all()
         db.session.add(sample_result)
         db.session.commit()

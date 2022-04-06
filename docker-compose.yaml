@@ -32,7 +32,7 @@ services:
     networks:
       - "card-net"  
   front-end:
-    image: jwearn1999/card-generate-front:v30
+    image: jwearn1999/card-generate-front:v31
     build: ./front-end
     networks:
       - "card-net"
@@ -56,7 +56,7 @@ services:
     networks:
       - "card-net"
   card-api:
-    image: jwearn1999/card-generate:v9
+    image: jwearn1999/card-generate:v10
     build: ./card-api
     networks:
       - "card-net"
