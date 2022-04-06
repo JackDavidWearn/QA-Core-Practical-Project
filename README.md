@@ -83,7 +83,7 @@ Only once the development branch has had all features pull-requested onto it, an
 Jenkins was used for the CI server for this project. A Github webhook was created, so that whenever any code was pushed or pull requested onto the main branch of the repository, Jenkins would clone the repository down onto the server, and execute the pipeline script (found within the Jenkinsfile). This would run the main stages of the application, which included the testing, building and deploying stages. The pipeline would also execute the post build actions, which in this case was to archive the artifacts, which were the testing coverage html reports folder. 
 
 The first stage of the Jenkins pipeline was testing. Within this stage, each of the different APIs are tested to ensure that there are no bugs or unexpected errors when deploying the application. Should any of the tests fail, then the Jenkins pipeline will skip the next steps and not deploy the application should anything fail. The screenshots below show the final stage of the pipeline which saves the html coverage report for each of the different tests (front-end, cardvalue-api, cardsuit-api and card-api). 
-![front-end coverage report]()
+![front-end coverage report](/Readme-Images/front-end_cov.png)
 
 ![cardvalue-api coverage report](/Readme-Images/cardvalue_api_coverage.png)
 

@@ -11,8 +11,9 @@ class TestBase(TestCase):
 
 class TestViews(TestBase):
     def test_get_ace_clubs(self):
-        response = self.client.post(url_for('card'), json={"symbol": "Ace", "suit": "Clubs", "image":"ClubsA.png"})
+        response = self.client.post(url_for('card'), json={"symbol": "A", "suit": "Clubs"})
         self.assert200(response)
-        self.assertIn(b'Ace of Clubs', response.data)
+        self.assertIn(b'static/clubs_A.png', response.data)
+
 
     
