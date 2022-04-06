@@ -28,7 +28,7 @@ class TestView(TestBase):
         with requests_mock.Mocker() as m:
             m.get('http://cardvalue-api:5000/get-values', text="K")
             m.get('http://cardsuit-api:5000/get_suit', text="Diamonds")
-            m.post('http://card-api:5000/card', json={"value":"King", "suit":"Diamonds", "image":"static/diamonds_K.png"})
+            m.post('http://card-api:5000/card', json={"value":"King", "suit":"Diamonds", "image":"diamonds_K.png"})
             response = self.client.get(url_for('index'))
             self.assert200(response)
             self.assertIn(b'King of Clubs', response.data)
