@@ -7,6 +7,6 @@ pip3 install -r test_requirements.txt
 declare -a services=(front-end cardvalue-api cardsuit-api card-api)
 for dir in "${services[@]}"; do
   cd ${dir}
-  python3 -m pytest -p no:warnings --cov=application --cov-report=html
+  python3 -m pytest -p no:warnings --cov=application term-missing --cov-report=html
   cd ..
 done
