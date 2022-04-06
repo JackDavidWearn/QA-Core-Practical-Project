@@ -89,7 +89,7 @@ The first stage of the Jenkins pipeline was testing. Within this stage, each of 
 
 ![cardsuit-api coverage report](/Readme-Images/cardsuit_api_coverage.png)
 
-![card-api coverage report]()
+![card-api coverage report](/Readme-Images/card-api_cov.png)
 
 The next stage of the pipeline is the building stage. Within this stage, the Docker images from the docker-compose.yaml file. I.e., all of the APIs, database and NGINX. The final step of this stage is to push the images to Dockerhub, where they can be retrieved. 
 
