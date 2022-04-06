@@ -31,9 +31,9 @@ class TestView(TestBase):
             m.post('http://card-api:5000/card', json={"value":"King", "suit":"Diamonds", "image":"diamonds_K.png"})
             response = self.client.get(url_for('index'))
             self.assert200(response)
-            self.assertIn(b'King of Clubs', response.data)
-            self.assertIn(b'King of Diamonds', response.data)
-            self.assertIn(b'static/diamonds_k.png', response.data)
+            self.assertIn(b'K of Clubs', response.data)
+            self.assertIn(b'K of Diamonds', response.data)
+            self.assertIn(b'/static/diamonds_k.png', response.data)
 
     def test_get_history(self):
         response = self.client.get(url_for('history'))
