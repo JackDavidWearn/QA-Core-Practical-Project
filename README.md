@@ -110,18 +110,22 @@ In response to the brief, I have chosen to develop a random card generator. This
 * Service 4 (card-api):
   * This service receives HTTP POST requests from service 1, which provides to it a randomly generated value/symbol and a randomly generated suit. Service 4 then creates a deck for the cards images to be stored in, creates a image key based on the symbol and suit which has been sent and gathers that image from the card deck, using the key as a reference for which one to collect. 
 
+### Running the Application
 In addition to these main four services, a reverse proxy using NGINX was implemented and used. NGINX service listens on port 80 from the host machine and performs a proxy pass, which directs traffic from port 80 to port 5000 on the front-end container, which is where the app is accessible. The images below show the front-end in action:
 ![App working](/Readme-Images/action_1.png)
 ![App working](/Readme-Images/action_2.png)
 ![App working](/Readme-Images/action_3.png)
 ![App working](/Readme-Images/action_4.png)
 
+### Original App Design
 The original design for the application was to have the home page display a random string of the cards thats has been generated. This can be seen in the screenshot below. Whenever the webpage is refreshed, or the "Generate New Card" button is clicked, the card text being displayed will change for a randomly generated card value and suit. This can be seen in the screenshot below:
 ![Original design for the application](/Readme-Images/original_design.png)
 
+### First Design Changes
 I then redesigned the application to also include an image of the card that has been generated. This is done through the use of a static folder which houses all of the different card images. An image key is then generated which is used to find the correct image in the "card deck", which is a python dictionary. This card image is then displayed through the use of the index.html webpage, which gets the `url_for` the static folder and adds the filename of the card that has been generated. This can be seen in the screenshot below:
 ![New design with image](/Readme-Images/new_design_w_card_image.png)
 
+### Final Design Changes
 The next design phase was to create a history of the cards that had been generated, store them in a database and display the full history of the cards that had been generated on another web page. The home page would also be changed to show the last five cards that have been drawn. This design change can be seen in the screenshots below:
 ![Home page with five card history](/Readme-Images/home_5_card_history.png)
 
@@ -149,6 +153,9 @@ The image below shows these virtual machines on GCP.
 
 An SQL instance was also created, which is where the mysql database is held. This gets configured to have a database called `card_db`, which has a table called `cards`. This is then connected to from the application and used to store all of the details of the cards that are generated from the front-end of the application. The screenshot below shows the mysql instance, with the database and table. 
 ![mysql instance](/Readme-Images/mysql_instance.png)
+
+## Known Issues
+At this stage there is no known issues, however this will be updated should any issues arise. 
 
 ## Future Improvements
 In the future, this application could be extended to function more like a game, such as black jack, where a user can generate a number of randomly generated cards with the aim of getting a score of 21. This could also be even further extended to allow for different types of card games to be played and would therefore increase the usability and the likelyhood of a returning user base. The application could also be further improved by using a locally hosted Nexus repository, which would speed up the deployment stage, as all of the different images would then not have to be collected from the Dockerhub site.
