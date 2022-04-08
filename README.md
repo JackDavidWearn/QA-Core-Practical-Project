@@ -99,9 +99,6 @@ The next stage of the pipeline is the building stage. Within this stage, the Doc
 
 The final stage of the pipeline is the deploying stage. In this stage the application is deployed onto the swarm-manager/swarm-workers and can be accessed via the web-browser from the IP address for the swarm-manager virtual machine. 
 
-The application was deployed onto an overlay network, which can be seen below:
-![Overlay Network](/Readme-Images/overlay_network.png)
-
 ## App Design
 In response to the brief, I have chosen to develop a random card generator. This utilises a microservice architecture as follows:
 * Service 1 (front-end):
