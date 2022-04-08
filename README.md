@@ -46,7 +46,8 @@ For this project, a database will be used to save and persist data. This data wi
 ### Microservice Architecture
 For development purposes, the database will be stored within a `sqlite` database, however the end goal of the application is that have the data is stored within a MySQL database on a server that is accessible from the entire application. The diagram below shows the microservice architecture diagram, outlining how the application is built. 
 
-![Microservices Architecture](/Readme-Images/microservices_architecture.drawio.png)
+The overall microservice structure is shown below:
+![Microservice structure](/Readme-Images/microservice_diagram.drawio.png)
 
 ## CI/CD Pipeline
 To develop and deploy this application, a full CI/CD Pipeline will be utilised to build, test, deploy, update and maintain the application. There are five main components of the CI/CD Pipeline, which are:
@@ -55,6 +56,9 @@ To develop and deploy this application, a full CI/CD Pipeline will be utilised t
 * Development Environment
 * CI Server
 * Deployment Environment
+
+The screenshot below shows the overall CI/CD pipeline architecture. 
+![Microservices Architecture](/Readme-Images/microservices_architecture.drawio.png)
 
 ### Project Tracking
 Project tracking was used to keep track of all of the required tasks for this project. The software used to perform project tracking was Trello. Here, a board had been created for the sprint project/sprint, which included a project backlog (which is a list of tasks that will need to be completed throughout the lifespan of the project), sprint backlog (which is a list of tasks which need to be completed within the designated sprint timeline), In Progress (which is where a task is moved to when it is being worked on), In Review (where the task has been completed but needs a final check before being pushed to the dev branch for example), Completed (when a task is fully completed) and Pushed to Main (which will house all of the sprints tasks that have been completed and push up to the main branch on the Github repository). The image below shows how the Trello board looked at the start of the project.
@@ -94,6 +98,9 @@ The first stage of the Jenkins pipeline was testing. Within this stage, each of 
 The next stage of the pipeline is the building stage. Within this stage, the Docker images from the docker-compose.yaml file. I.e., all of the APIs, database and NGINX. The final step of this stage is to push the images to Dockerhub, where they can be retrieved. 
 
 The final stage of the pipeline is the deploying stage. In this stage the application is deployed onto the swarm-manager/swarm-workers and can be accessed via the web-browser from the IP address for the swarm-manager virtual machine. 
+
+The application was deployed onto an overlay network, which can be seen below:
+![Overlay Network](/Readme-Images/overlay_network.png)
 
 ## App Design
 In response to the brief, I have chosen to develop a random card generator. This utilises a microservice architecture as follows:
