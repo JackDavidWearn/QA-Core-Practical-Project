@@ -46,6 +46,8 @@ services:
   cardvalue-api:
     image: jwearn1999/card-generate-value:v5
     build: ./cardvalue-api
+    deploy:
+      replicas: 3
     networks:
       - "card-net"
   cardsuit-api:
@@ -58,5 +60,7 @@ services:
   card-api:
     image: jwearn1999/card-generate:v11
     build: ./card-api
+    deploy:
+      replicas: 3
     networks:
       - "card-net"
